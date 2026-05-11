@@ -8,6 +8,7 @@ from evaluation.evaluation import calculate_mse
 from sklearn.model_selection import train_test_split
 
 # Load data
+
 file_path = "data/Customer_Dataset.csv"
 data = pd.read_csv(file_path)
 
@@ -154,3 +155,37 @@ plt.savefig(file_name, format='png', dpi=300)
 print(f"Chart saved as {file_name}")
 
 plt.show()
+
+# Step 10 - Recency Analysis
+# Define recency categories based on Days Since Last Purchase
+def categorize_recency(days):
+    if days <= 30:
+        return 'Recent'
+    elif days <= 60:
+        return 'Lapsed'
+    else:
+        return 'Dormant'
+
+# Apply recency categorization
+data['Recency Category'] = data['Days Since Last Purchase'].apply(categorize_recency)
+
+# Count customers in each category
+recency_counts = data['Recency Category'].value_counts()
+
+# Plot bar chart
+plt.figure(figsize=(8, 5))
+bars = plt.bar(recency_counts.index, recency_counts.values, color=['#2ecc71', '#e67e22', '#e74c3c'])
+plt.title('Distribution of Customers by Recency Category', fontweight='bold')
+plt.xlabel('Recency Category')
+plt.ylabel('Number of Customers')
+
+# Add value labels on top of each bar
+for bar in bars:
+    plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 1,
+             str(int(bar.get_height())), ha='center', fontsize=11)
+
+plt.tight_layout()
+plt.savefig('recency_distribution.png')
+plt.show()
+
+print(data['Recency Category'].value_counts())
