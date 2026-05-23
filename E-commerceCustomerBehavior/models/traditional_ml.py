@@ -7,7 +7,7 @@ from sklearn.neighbors import KNeighborsRegressor
 
 
 def train_random_forest(X_train, y_train):
-    model = RandomForestRegressor(n_estimators=100, random_state=42)
+    model = RandomForestRegressor(n_estimators=500, random_state=100)
     model.fit(X_train, y_train)
     return model
 
@@ -19,8 +19,8 @@ def predict(model, X_test):
 def get_all_models():
     return {
         "Linear Regression": LinearRegression(),
-        "Decision Tree": DecisionTreeRegressor(random_state=42),
-        "Random Forest": RandomForestRegressor(n_estimators=100, random_state=42),
-        "Gradient Boosting": GradientBoostingRegressor(n_estimators=100, random_state=42),
-        "KNN": KNeighborsRegressor(n_neighbors=5)
+        "Decision Tree": DecisionTreeRegressor(random_state=100),
+        "Random Forest": RandomForestRegressor(n_estimators=500, random_state=100),
+        "Gradient Boosting": GradientBoostingRegressor(n_estimators=500, random_state=100),
+        "KNN": KNeighborsRegressor(n_neighbors=20)
     }
