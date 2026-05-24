@@ -45,10 +45,15 @@ mae  = calculate_mae(y_test, y_pred)
 r2   = calculate_r2(y_test, y_pred)
 rmse = np.sqrt(mse)
 
+print("\n\n")
+print("="*35)
+print("Random Forest Regressor Performance:")
 print(f"Mean Squared Error : {mse:.2f}")
 print(f"Mean Absolute Error: {mae:.2f}")
 print(f"RMSE               : {rmse:.2f}")
 print(f"R² Score           : {r2:.4f}")
+print("="*35)
+
 # ──────────────────────────────────────────────
 # Model comparison
 # ──────────────────────────────────────────────
@@ -88,7 +93,7 @@ print("\n")
 # New customer — terminal input
 # ──────────────────────────────────────────────
 print("\n" + "=" * 50)
-print("   NEW CUSTOMER SPEND PREDICTION")
+print("                 NEW CUSTOMER SPEND PREDICTION")
 print("=" * 50)
 
 valid_genders     = sorted(label_encoders['Gender'].classes_)
@@ -173,5 +178,5 @@ new_customer_scaled = scaler.transform(new_customer)
 predicted_spend = model.predict(new_customer_scaled)
 
 print("\n" + "-" * 50)
-print(f"  Predicted Total Spend: ${predicted_spend[0]:.2f}")
+print(f"Predicted Total Spend: ${predicted_spend[0]:.2f}")
 print("-" * 50)
