@@ -6,7 +6,6 @@ A machine learning pipeline for analyzing US e-commerce customer behavior — pr
 
 ```bash
 ├── main.py                     # Entry point — runs the full pipeline
-├── plots.py                    # All plot functions (auto-skips if already saved)
 ├── data/
 │   └── Customer_Dataset_US.csv # 1,100 customers across 55 US cities
 ├── models/
