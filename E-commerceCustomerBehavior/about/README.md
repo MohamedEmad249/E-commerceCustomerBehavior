@@ -15,7 +15,7 @@ A machine learning pipeline for analyzing US e-commerce customer behavior — pr
 ├── evaluation/
 │   └── evaluation.py           # MSE calculation
 └── plots/                      # Auto-created — saved plot images go here
-|   └── plots.py                # All plot functions (auto-skips if already saved)
+    └── plots.py                # All plot functions (auto-skips if already saved)
 ```
 
 ## What It Does
